@@ -1,5 +1,5 @@
 # research-agent-skills
-A repository for the skills required for research activities (primarily code development) involving AI agents
+A repository for the skills required for my research activities (primarily code development) involving AI agents
 
 ## AI assistance
 
