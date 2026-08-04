@@ -4,9 +4,8 @@ A repository for the skills required for research activities (primarily code dev
 ## AI assistance
 
 The skills in this repository were developed with assistance from
-OpenAI Codex. The maintainer determined their concepts, workflow
-boundaries, revisions, and final contents, and takes responsibility
-for each release.
+OpenAI Codex. The maintainer made the final decisions regarding their
+concepts, workflow boundaries, revisions, and published contents.
 
 ## License
 
