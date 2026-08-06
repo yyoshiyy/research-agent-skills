@@ -60,6 +60,11 @@ Codex must not start the teach-back workflow merely because a user asks
 a technical question or discusses their understanding. The user must
 explicitly invoke `$teach-back`.
 
+Explicit invocation is required on every turn that should apply the
+skill. When Codex asks the user to revise an explanation, it must tell
+the user to invoke `$teach-back` again when submitting that revision;
+conversation context alone does not reactivate the skill.
+
 ## User-owned understanding notes
 
 An understanding note is written and maintained by the user.
@@ -144,12 +149,14 @@ Codex must:
 
 1. identify the claims made by the user;
 2. determine which claims can be checked;
-3. select appropriate evidence;
+3. select appropriate evidence and record enough source information for
+   the user to identify and inspect it;
 4. compare the claims with that evidence;
 5. distinguish errors from missing detail and unresolved uncertainty;
 6. give diagnostic feedback;
 7. prompt the user to explain the subject again when a revision is
-   required.
+   required, and tell the user to invoke `$teach-back` again in the
+   response that submits the revision.
 
 Codex must not convert the evaluation into an AI-written replacement
 note.
@@ -176,6 +183,15 @@ Suitable evidence depends on the subject and may include:
 - original papers;
 - established textbooks or reference works;
 - other clearly identified primary or high-quality sources.
+
+For every material supported point and correction, Codex must give an
+identifiable source: its title or responsible organization and a URL or
+other stable identifier, the relevant version or publication date when
+applicable, and the relevant section, heading, page, or symbol when each
+applies and is available. If applicable source metadata is unavailable,
+Codex must state that limitation instead of silently omitting it. Vague
+attribution such as "the official documentation says" is insufficient.
+Sources should appear next to the claims they support.
 
 Codex must state when evidence is incomplete, indirect, unavailable, or
 version-mismatched. It must not silently convert observed implementation
@@ -386,6 +402,11 @@ Tests with the skill should cover at least:
     available.
 11. A normal technical question without explicit skill invocation.
 12. An explicit `$teach-back` invocation.
+13. An initial cycle in which the user's revision is submitted on a
+    later turn and must explicitly invoke `$teach-back` again.
+14. An evaluation whose every material supported point and correction
+    identifies inspectable sources, including versions or dates when
+    relevant.
 
 Acceptance checks should confirm that:
 
@@ -400,6 +421,10 @@ Acceptance checks should confirm that:
 - nearby development repositories are not explored automatically;
 - implicit invocation is disabled;
 - explicit invocation remains available.
+- required follow-up evaluations instruct the user to invoke
+  `$teach-back` again;
+- material supported points and corrections include identifiable,
+  inspectable sources.
 
 Where practical, file integrity should be checked before and after each
 evaluation using a content hash.

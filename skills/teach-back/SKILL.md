@@ -29,9 +29,9 @@ If a question arises during Evaluation mode, answer it separately. Codex's answe
 
 1. Establish scope from the conversation and user-specified material.
 2. Read without changing the note. Where practical, hash it before evaluation and again after feedback.
-3. Extract the learner's claims and identify evidence for assessing each claim. Keep note content separate from evidence.
-4. Classify findings into supported points, errors, missing distinctions, dependencies, and uncertainty. For each error, state only the minimal corrected fact, supporting evidence, and consequence needed to diagnose it, including why consequential errors matter. Leave synthesis and note wording to the user; do not draft replacement prose.
-5. Ask the user to explain affected ideas again in their own words only when a user-authored revision is required under the Revision rule.
+3. Extract the learner's claims and identify evidence for assessing each claim. Keep note content separate from evidence. For every material supported point and correction, prepare an identifiable source: its title or responsible organization and a URL or other stable identifier, the relevant version or publication date, and the relevant section, heading, page, or symbol when each applies and is available. If applicable source metadata is unavailable, state that limitation instead of silently omitting it. Do not rely on vague attribution such as "the documentation says."
+4. Classify findings into supported points, errors, missing distinctions, dependencies, and uncertainty. For each error, state only the minimal corrected fact, supporting evidence, and consequence needed to diagnose it, including why consequential errors matter. Cite each source next to the point it supports. Leave synthesis and note wording to the user; do not draft replacement prose.
+5. Ask the user to explain affected ideas again in their own words only when a user-authored revision is required under the Revision rule. When requesting a revision, explicitly tell the user to invoke `$teach-back` again in the next message and then provide their revised explanation or identify the updated note; do not imply that the skill remains active automatically across turns.
 6. Verify that the note is unchanged, using the hashes when available.
 
 Use only lenses that help with the subject; they are not a mandatory template: claims, terms, relationships, assumptions, reasoning, applicability, boundaries, limits, and examples or counterexamples.
@@ -52,7 +52,7 @@ The note frontmatter fields `library`, `symbol`, `library-version`, and `last-ch
 
 ## Evaluation response
 
-Keep these parts distinct:
+Keep these parts distinct, with identifiable sources placed next to the claims they support:
 
 1. Scope and evidence
 2. Supported understanding
