@@ -44,6 +44,12 @@ After that first rewrite, require another rewrite only for a major misunderstand
 
 A later re-evaluation is an evaluation after the initial cycle has already completed. Determine this only from conversation context; if it is unclear, ask briefly. Never infer it from the note or Git. Do not automatically require another rewrite when no major misunderstanding remains.
 
+## Optional review quiz
+
+After evaluating the mandatory first user-authored rewrite, if no major misunderstanding remains and the initial cycle can complete, add one short notice in the user's language that they may invoke `$teach-back-quiz` for an optional review quiz.
+
+Never generate or invoke the quiz automatically. Do not include this notice in Question mode, before evaluating the mandatory first rewrite, or while a major misunderstanding still requires another rewrite.
+
 ## API-specific scope
 
 For an API subject, also assess the target `library` and `symbol`, `library-version`, inputs, outputs, observable effects or side effects, conditions, boundaries, exceptions, and documented guarantees versus implementation details.
