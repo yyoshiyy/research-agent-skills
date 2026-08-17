@@ -1,0 +1,7 @@
+interface:
+  display_name: "Teach-back Quiz"
+  short_description: "Review a user-authored understanding note"
+  default_prompt: "Use $teach-back-quiz to give me an optional self-study quiz based on my understanding note."
+
+policy:
+  allow_implicit_invocation: true
