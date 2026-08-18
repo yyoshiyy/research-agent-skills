@@ -22,14 +22,17 @@ explicit-only and does not generate a quiz.
 
 When an initial teach-back cycle is complete—that is, the mandatory
 first user-authored rewrite has been evaluated and no major
-misunderstanding remains—`teach-back` adds only a short availability
+misunderstanding remains—`teach-back` may add a short availability
 notice such as:
 
 > To use an optional review quiz, invoke `$teach-back-quiz`.
 
-The notice does not start the quiz automatically. It must not appear
-after an initial evaluation that still requires the mandatory rewrite
-or in Question mode.
+The notice does not start the quiz automatically. It appears only when
+`teach-back-quiz` is actually available in the current session. It must
+not appear after an initial evaluation that still requires the
+mandatory rewrite or in Question mode. Availability is determined from
+the current session's available skills, never inferred from repository
+files or sibling-skill text.
 
 `teach-back-quiz` is a separate sibling skill. It does not decide
 whether a teach-back cycle is complete and does not require access to a
@@ -92,6 +95,14 @@ A new quiz starts only when the user explicitly invokes
 `$teach-back-quiz`. The user must identify a user-authored understanding
 note or a specific passage from it. A topic name alone is insufficient.
 
+If the skill asks for missing note access, scope, version, or other
+information required to finish that explicit invocation, the user's
+direct answer may continue that pending invocation in the same
+conversation without repeating the skill name. This continuation ends
+when the quiz is produced or declined, a new explicit invocation
+replaces it, or the response cannot be tied to the pending question. It
+must not become a general permission to start later quizzes implicitly.
+
 The skill may be selected implicitly only to process a direct response
 to an unanswered quiz that it posed in the same conversation. Its
 instructions must prohibit generating a new quiz without explicit
@@ -140,11 +151,15 @@ The agent must avoid a candidate question when:
 - the relevant version or assumptions cannot be established;
 - more than one option could reasonably be correct.
 
-Sources are withheld during initial question presentation so that they
-do not reveal the answer. After an answer, the feedback normally
-includes one concise source name and link or other stable identifier per
-answered question. When the same source supports both answers, it may
-be cited once without needless repetition.
+Initial question presentation may include citations when required, but
+only in a form that does not reveal or materially suggest the answer.
+Use neutral document or organization names and links; omit answer-linked
+quotations, section titles, fragments, explanations, and option-to-source
+mappings. If even a neutral citation would reveal the answer, do not use
+that candidate question. After an answer, the feedback normally includes
+one concise source name and link or other stable identifier per answered
+question. When the same source supports both answers, it may be cited
+once without needless repetition.
 
 ## Question selection
 
@@ -184,7 +199,9 @@ optionality, for example:
 
 Then present Question 1 and, when valid, Question 2. Each has four
 concise options labeled `A` through `D`. The initial response does not
-include the correct answer, an explanation, a score, or source details.
+include the correct answer, an explanation, a score, or source details
+that reveal or materially suggest the answer. Neutral citations are
+allowed as described by the evidence policy.
 
 Options should avoid ambiguity, conspicuous length differences,
 irrelevant difficulty, and wording designed to trick the user.
@@ -223,8 +240,10 @@ the question when necessary.
   information, do not build a quiz on the false premise.
 - Do not turn the conflict into a full-note evaluation. Select another
   supported central concept when possible; otherwise state briefly that
-  a reliable quiz cannot be made from the current scope and suggest
-  re-evaluation with `$teach-back`.
+  a reliable quiz cannot be made from the current scope. Suggest
+  re-evaluation with `$teach-back` only when that skill is available in
+  the current session; otherwise suggest re-evaluation without naming an
+  unavailable skill.
 - If evidence is unavailable, conflicting, version-mismatched, or
   insufficient for one clear answer, choose a different supported point
   or decline to generate the affected question.
@@ -263,3 +282,12 @@ fresh agents should cover at least the following cases:
     answer.
 14. Ambiguous answers and challenged judgments trigger clarification or
     rechecking rather than unjustified certainty.
+15. A direct answer to a same-conversation request for missing note,
+    scope, or version information continues the pending invocation
+    without a second explicit invocation, but unrelated later messages
+    do not start a quiz.
+16. Initial citations satisfy applicable citation requirements without
+    revealing or materially suggesting the correct option.
+17. `teach-back` advertises `$teach-back-quiz`, and `teach-back-quiz`
+    advertises `$teach-back`, only when the named sibling skill is
+    available in the current session.
