@@ -1,6 +1,6 @@
 ---
 name: teach-back-quiz
-description: Use when the user explicitly invokes $teach-back-quiz with their own understanding note for an optional review quiz, or when the user directly answers an unanswered quiz produced by this skill in the same conversation. Never start a new quiz implicitly.
+description: Use when the user explicitly invokes $teach-back-quiz with their own understanding note, directly supplies information this skill requested to complete a pending explicit invocation in the same conversation, or directly answers an unanswered quiz produced by this skill there. Never start an unrelated or later quiz implicitly.
 ---
 
 # Teach-back Quiz
@@ -33,6 +33,23 @@ Start only when the current user message explicitly invokes
 note or a specific passage from it. A topic name alone is insufficient;
 ask for the note instead of generating a general-purpose quiz.
 
+### Continue a pending invocation
+
+Continue without another invocation only when all of these are true:
+
+- the user explicitly invoked `$teach-back-quiz` earlier in this same
+  conversation;
+- this skill then asked one specific question needed to finish that
+  request, such as which note, scope, or version to use;
+- the current message directly answers that pending question; and
+- the original quiz request remains active and any note already
+  identified for it has not been replaced.
+
+Use the answer only to finish the original invocation. The continuation
+ends when the quiz is produced or declined, a new explicit invocation
+replaces it, or the message cannot be tied to the pending question. It
+never authorizes an unrelated or later quiz to start implicitly.
+
 ### Judge an answer
 
 When this skill previously posed an unanswered quiz in the same
@@ -43,7 +60,7 @@ earliest unanswered question. For targeted or multiple answers, accept
 forms such as `1:B, 2:A`. If there is no identifiable open quiz, do not
 guess what a short message means.
 
-If neither condition applies, do not start or reconstruct a quiz.
+If none of these actions applies, do not start or reconstruct a quiz.
 
 ## Establish scope without changing the note
 
@@ -54,8 +71,9 @@ If neither condition applies, do not start or reconstruct a quiz.
    hash before responding.
 3. Identify its subject, central claims, assumptions, conditions, and
    stated limits.
-4. Ask one short question only when ambiguity about scope or version
-   would change the correct answer.
+4. Ask one short question only when missing note access or ambiguity
+   about scope or version would change the correct answer. This leaves
+   only the current explicit invocation pending as described above.
 5. Use past teach-back feedback only when it is actually available in
    the conversation. Its absence is normal.
 
@@ -75,7 +93,11 @@ If a material note claim conflicts with primary information, do not
 build a question on the false premise and do not expand into a full-note
 evaluation. Choose another supported central concept when possible. If
 none remains, state briefly that a reliable quiz cannot be made from
-the current scope and suggest re-evaluation with `$teach-back`.
+the current scope. Suggest re-evaluation with `$teach-back` only when
+that skill is available in the current session; otherwise suggest
+re-evaluation without naming a skill. Determine availability only from
+the current session's available skills, never from repository files or
+this skill's references to its sibling.
 
 ## Construct at most two questions
 
@@ -114,8 +136,17 @@ question merely to reach two questions.
 
 Begin with one short statement that this is an optional self-study quiz
 and that the user does not need to answer. Present the question or
-questions without the answer key, explanation, score, or source
-details. Do not prompt or remind the user later if they do not answer.
+questions without the answer key, explanation, score, or source details
+that reveal or materially suggest the correct option.
+
+When applicable citation requirements call for citations in the
+initial response, include only answer-neutral citations such as a
+neutral document or organization name with a URL or stable identifier.
+Do not include an answer-linked quotation, revealing section title or
+fragment, explanation, or option-to-source mapping. If even a neutral
+citation would reveal the answer, choose another question or decline
+that question. Do not prompt or remind the user later if they do not
+answer.
 
 ## Respond to answers
 
@@ -144,8 +175,11 @@ error, not the user's error, and withdraw it when necessary.
 
 ## Final self-check
 
-Confirm that the note remained unchanged, a new quiz had an explicit
-invocation and a user-identified note, every answer key was checked
-against primary information, no boundary question required new
-knowledge, no answer was revealed before the user responded, and no
+Confirm that the note remained unchanged; each new quiz came from the
+current explicit invocation or a valid same-conversation continuation
+of one and had a user-identified note; every answer key was checked
+against primary information; no boundary question required new
+knowledge; no answer appeared before the user responded; no earlier
+citation revealed or materially suggested the answer;
+every named sibling skill was available in the current session; and no
 result was framed as teaching authority or certification.

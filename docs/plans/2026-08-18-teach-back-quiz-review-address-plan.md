@@ -62,7 +62,8 @@ Add `Continue a pending invocation` between new-quiz start and answer judgment. 
 - the earlier request explicitly invoked `$teach-back-quiz`;
 - this skill asked one specific question needed to complete that request;
 - the new message directly answers that question;
-- the same note and quiz request remain in scope.
+- the original quiz request remains active; and
+- any note already identified for that request has not been replaced.
 
 End the continuation after quiz production or refusal, replacement by a new explicit invocation, or a response that cannot be tied to the pending question.
 
@@ -133,6 +134,8 @@ Verify all fixture hashes and metadata still match their pre-test records.
 ### Task 6: Validate, review the diff, commit, and push
 
 **Files:**
+- Modify: `docs/plans/2026-08-17-teach-back-quiz-design.md`
+- Modify: `docs/plans/2026-08-18-teach-back-quiz-review-address-plan.md`
 - Modify: `skills/teach-back-quiz/SKILL.md`
 - Modify: `skills/teach-back/SKILL.md`
 
@@ -146,7 +149,9 @@ Expected: `Skill is valid!` for each skill.
 
 Run `git diff --check`, inspect `git diff --stat`, and verify no unrelated file changed.
 
-Expected: no whitespace errors; only the two skill files differ from the design/plan commits.
+Expected: no whitespace errors; only the two skill files, the approved
+design clarification, and this plan synchronization differ from the
+design/plan commits.
 
 **Step 3: Review requirements line by line**
 
@@ -155,7 +160,9 @@ Map each of the three review threads to the exact skill wording and the correspo
 **Step 4: Commit the implementation**
 
 ```bash
-git add skills/teach-back-quiz/SKILL.md skills/teach-back/SKILL.md
+git add docs/plans/2026-08-17-teach-back-quiz-design.md \
+  docs/plans/2026-08-18-teach-back-quiz-review-address-plan.md \
+  skills/teach-back-quiz/SKILL.md skills/teach-back/SKILL.md
 git commit -m "Address teach-back quiz review feedback"
 ```
 

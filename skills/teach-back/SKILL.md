@@ -46,7 +46,7 @@ A later re-evaluation is an evaluation after the initial cycle has already compl
 
 ## Optional review quiz
 
-After evaluating the mandatory first user-authored rewrite, if no major misunderstanding remains and the initial cycle can complete, add one short notice in the user's language that they may invoke `$teach-back-quiz` for an optional review quiz.
+After evaluating the mandatory first user-authored rewrite, if no major misunderstanding remains, the initial cycle can complete, and `teach-back-quiz` is available in the current session, add one short notice in the user's language that they may invoke `$teach-back-quiz` for an optional review quiz. Determine availability only from the current session's available skills, never from repository files or this skill's references to its sibling. If availability is unknown, omit the notice.
 
 Never generate or invoke the quiz automatically. Do not include this notice in Question mode, before evaluating the mandatory first rewrite, or while a major misunderstanding still requires another rewrite.
 
@@ -69,4 +69,4 @@ Keep these parts distinct, with identifiable sources placed next to the claims t
 
 ## Final self-check
 
-Before responding, confirm that you did not modify the note, supply replacement text, treat the note as evidence, merge Question and Evaluation modes, count your own answer as the user's rewrite, or inspect an unrelated repository.
+Before responding, confirm that you did not modify the note, supply replacement text, treat the note as evidence, merge Question and Evaluation modes, count your own answer as the user's rewrite, inspect an unrelated repository, or name an unavailable sibling skill.

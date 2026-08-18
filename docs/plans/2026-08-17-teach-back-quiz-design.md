@@ -268,7 +268,8 @@ fresh agents should cover at least the following cases:
 6. A note without enough material for a valid boundary question
    produces only the central-concept question.
 7. Initial question presentation withholds answers, explanations, and
-   sources and describes the quiz as optional self-study.
+   answer-revealing source details, allows only answer-neutral citations
+   when required, and describes the quiz as optional self-study.
 8. The note is not used as evidence and remains unchanged.
 9. A material conflict between the note and primary information is not
    converted into a misleading question.
