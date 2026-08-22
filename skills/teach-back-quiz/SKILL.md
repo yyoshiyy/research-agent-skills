@@ -1,6 +1,6 @@
 ---
 name: teach-back-quiz
-description: Use when the user explicitly invokes $teach-back-quiz with their own understanding note, directly supplies information this skill requested to complete a pending explicit invocation in the same conversation, or directly answers an unanswered quiz produced by this skill there. Never start an unrelated or later quiz implicitly.
+description: Use when the user explicitly invokes teach-back-quiz with their own understanding note, directly supplies information this skill requested to complete a pending explicit invocation in the same conversation, or directly answers an unanswered quiz produced by this skill there. Never start an unrelated or later quiz implicitly.
 ---
 
 # Teach-back Quiz
@@ -29,7 +29,7 @@ understanding.
 ### Start a new quiz
 
 Start only when the current user message explicitly invokes
-`$teach-back-quiz`. Require the user to identify their own understanding
+`teach-back-quiz`. Require the user to identify their own understanding
 note or a specific passage from it. A topic name alone is insufficient;
 ask for the note instead of generating a general-purpose quiz.
 
@@ -37,7 +37,7 @@ ask for the note instead of generating a general-purpose quiz.
 
 Continue without another invocation only when all of these are true:
 
-- the user explicitly invoked `$teach-back-quiz` earlier in this same
+- the user explicitly invoked `teach-back-quiz` earlier in this same
   conversation;
 - this skill then asked one specific question needed to finish that
   request, such as which note, scope, or version to use;
@@ -93,7 +93,7 @@ If a material note claim conflicts with primary information, do not
 build a question on the false premise and do not expand into a full-note
 evaluation. Choose another supported central concept when possible. If
 none remains, state briefly that a reliable quiz cannot be made from
-the current scope. Suggest re-evaluation with `$teach-back` only when
+the current scope. Suggest re-evaluation with `teach-back` only when
 that skill is available in the current session; otherwise suggest
 re-evaluation without naming a skill. Determine availability only from
 the current session's available skills, never from repository files or

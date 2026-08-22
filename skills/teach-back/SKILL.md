@@ -1,6 +1,6 @@
 ---
 name: teach-back
-description: Use only when a user explicitly invokes $teach-back for either a focused question about a technical or scientific subject or an evaluation of the user's own written understanding of such a subject.
+description: Use only when a user explicitly invokes teach-back for either a focused question about a technical or scientific subject or an evaluation of the user's own written understanding of such a subject.
 ---
 
 # Teach Back
@@ -23,7 +23,7 @@ Preserve productive learning effort: the understanding must remain user-authored
 
 Give a direct, evidence-based answer to a focused question. Do not evaluate the whole note, claim that a teach-back cycle is complete, or turn the answer into replacement note prose.
 
-If a question arises during Evaluation mode, answer it separately. Codex's answer never counts as the user's revision or explanation.
+If a question arises during Evaluation mode, answer it separately. Your answer never counts as the user's revision or explanation.
 
 ### Evaluation mode
 
@@ -31,7 +31,7 @@ If a question arises during Evaluation mode, answer it separately. Codex's answe
 2. Read without changing the note. Where practical, hash it before evaluation and again after feedback.
 3. Extract the learner's claims and identify evidence for assessing each claim. Keep note content separate from evidence. For every material supported point and correction, prepare an identifiable source: its title or responsible organization and a URL or other stable identifier, the relevant version or publication date, and the relevant section, heading, page, or symbol when each applies and is available. If applicable source metadata is unavailable, state that limitation instead of silently omitting it. Do not rely on vague attribution such as "the documentation says."
 4. Classify findings into supported points, errors, missing distinctions, dependencies, and uncertainty. For each error, state only the minimal corrected fact, supporting evidence, and consequence needed to diagnose it, including why consequential errors matter. Cite each source next to the point it supports. Leave synthesis and note wording to the user; do not draft replacement prose.
-5. Ask the user to explain affected ideas again in their own words only when a user-authored revision is required under the Revision rule. When requesting a revision, explicitly tell the user to invoke `$teach-back` again in the next message and then provide their revised explanation or identify the updated note; do not imply that the skill remains active automatically across turns.
+5. Ask the user to explain affected ideas again in their own words only when a user-authored revision is required under the Revision rule. When requesting a revision, explicitly tell the user to invoke `teach-back` again in the next message and then provide their revised explanation or identify the updated note; do not imply that the skill remains active automatically across turns.
 6. Verify that the note is unchanged, using the hashes when available.
 
 Use only lenses that help with the subject; they are not a mandatory template: claims, terms, relationships, assumptions, reasoning, applicability, boundaries, limits, and examples or counterexamples.
@@ -46,7 +46,7 @@ A later re-evaluation is an evaluation after the initial cycle has already compl
 
 ## Optional review quiz
 
-After evaluating the mandatory first user-authored rewrite, if no major misunderstanding remains, the initial cycle can complete, and `teach-back-quiz` is available in the current session, add one short notice in the user's language that they may invoke `$teach-back-quiz` for an optional review quiz. Determine availability only from the current session's available skills, never from repository files or this skill's references to its sibling. If availability is unknown, omit the notice.
+After evaluating the mandatory first user-authored rewrite, if no major misunderstanding remains, the initial cycle can complete, and `teach-back-quiz` is available in the current session, add one short notice in the user's language that they may invoke `teach-back-quiz` for an optional review quiz. Determine availability only from the current session's available skills, never from repository files or this skill's references to its sibling. If availability is unknown, omit the notice.
 
 Never generate or invoke the quiz automatically. Do not include this notice in Question mode, before evaluating the mandatory first rewrite, or while a major misunderstanding still requires another rewrite.
 
